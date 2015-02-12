@@ -1,5 +1,6 @@
-require 'net/http'
-require 'json'
+#!/usr/bin/env ruby
+require 'open-uri'
+require 'yaml'
 require 'sqlite3'
 
 DEBUG = true
@@ -9,7 +10,8 @@ if DEBUG
   WORKFLOW_PATH = "~/Sites/alfred-workflow-package-manager-workflow/tmp"
 else
   HOST = "http://flow.lab.io"
-  WORKFLOW_PATH = "~/Library/Application\\ Support/Alfred\\ 2/Alfred.alfredpreferences/workflows"
+  ALFRED_PREFERENCES_PATH = ENV['alfred_preferences']
+  WORKFLOW_PATH = "#{ALFRED_PREFERENCES_PATH}/workflows"
 end
 
 module Workflow
