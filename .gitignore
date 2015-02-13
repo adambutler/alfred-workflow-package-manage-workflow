@@ -19,3 +19,6 @@ Thumbs.db
 # Custom
 tmp
 workflow.db
+.bundle
+bundle
+Gemfile.lock
