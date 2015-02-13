@@ -1,4 +1,3 @@
-https://travis-ci.org/illusionfield/alfred-workflow-package-manager-workflow.svg?branch=master
 # Alfred Workflow Package Manager Workflow
 
 [![Build Status](https://travis-ci.org/illusionfield/alfred-workflow-package-manager-workflow.svg)](https://travis-ci.org/illusionfield/alfred-workflow-package-manager-workflow)
