@@ -1,15 +1,20 @@
-require 'net/http'
-require 'json'
+#!/usr/bin/env ruby
+
+require 'open-uri'
+require 'yaml'
 require 'sqlite3'
 
-DEBUG = true
+$environment = :production unless $environment
 
-if DEBUG
-  HOST = "http://alfred-workflow-package-manager.dev"
-  WORKFLOW_PATH = "~/Sites/alfred-workflow-package-manager-workflow/tmp"
-else
-  HOST = "http://flow.lab.io"
-  WORKFLOW_PATH = "~/Library/Application\\ Support/Alfred\\ 2/Alfred.alfredpreferences/workflows"
+case $environment
+  when :production
+    $host = "http://flow.lab.io"
+    $alfred_preferences = ENV['alfred_preferences']
+    $workflow_path = "#{$alfred_preferences}/workflows"
+  when :development
+    $host = "http://alfred-workflow-package-manager.dev" unless $host
+    tmp_path = (ENV['TMP']) ? ENV['TMP'] : "/tmp"
+    $workflow_path = tmp_path unless $workflow_path
 end
 
 module Workflow

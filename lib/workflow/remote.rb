@@ -2,20 +2,17 @@ module Workflow
   class Remote
 
     def self.index(query = nil)
-      url = "#{HOST}/workflows.json"
+      url = "#{$host}/workflows.json"
       url = "#{url}?query=#{query}" if query
-      uri = URI(url)
-      http = Net::HTTP.new(uri.host, uri.port)
-      request =  Net::HTTP::Get.new(uri)
-      workflows = JSON.parse(http.request(request).body)
+      request = open(url).read
+      workflows = YAML::load(request)
       return workflows
     end
 
     def self.get(id)
-      uri = URI("#{HOST}/workflows/#{id}.json")
-      http = Net::HTTP.new(uri.host, uri.port)
-      request =  Net::HTTP::Get.new(uri)
-      workflow = JSON.parse(http.request(request).body)
+      url = "#{$host}/workflows/#{id}.json"
+      request = open(url).read
+      workflow = YAML::load(request)
       return workflow
     end
 

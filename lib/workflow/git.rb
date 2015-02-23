@@ -9,7 +9,7 @@ module Workflow
         puts "Error: Workflow is already installed"
         return
       end
-      if system "cd #{WORKFLOW_PATH} && git clone #{git_repository_url}"
+      if system "cd \"#{$workflow_path}\" && git clone #{git_repository_url}"
         DB.execute "INSERT INTO workflows ('title', 'git_repository_url') VALUES ('#{title}', '#{git_repository_url}');"
       end
     end

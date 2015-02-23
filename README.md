@@ -1,5 +1,7 @@
 # Alfred Workflow Package Manager Workflow
 
+[![Build Status](https://travis-ci.org/illusionfield/alfred-workflow-package-manager-workflow.svg)](https://travis-ci.org/illusionfield/alfred-workflow-package-manager-workflow)
+
 > :bomb: This project is at early stages of development. Star it to follow its development or contribute.
 
 Alfred Workflow Package Manager is a Ruby on Rails application to mangage alfred workflows. It will soon have an alfred workflow companion to install the workflows
